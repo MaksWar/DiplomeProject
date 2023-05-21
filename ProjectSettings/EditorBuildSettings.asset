@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/TestScene.unity
     guid: ed5231fbf1b40204db11c5ef5e92ff10
+  - enabled: 1
+    path: Assets/Game/Scenes/Minigames/ChooseNotCorrectPicture.unity
+    guid: 760abb4b26d0b0b45920e537f6825978
+  - enabled: 1
+    path: Assets/Game/Scenes/MainMenu.unity
+    guid: 957230fd0f708bf45ab64fa5aab20bf4
   m_configObjects: {}

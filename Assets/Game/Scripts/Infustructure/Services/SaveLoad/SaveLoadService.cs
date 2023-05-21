@@ -23,8 +23,11 @@ namespace Infrastructure.Services.SaveLoad
 			foreach (ISavedProgress progressWriter in _factoryProvider.ProgressWriters)
 				progressWriter.UpdateProgress(_progressService.Progress);
 
-			PlayerPrefs.SetString(progressKey, _progressService.Progress.ToJson());
+			SaveLocal();
 		}
+
+		public void SaveLocal() =>
+			PlayerPrefs.SetString(progressKey, _progressService.Progress.ToJson());
 
 		public PlayerProgress LoadProgress() =>
 			PlayerPrefs.GetString(progressKey)?.ToDeserialized<PlayerProgress>();

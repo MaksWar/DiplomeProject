@@ -1,5 +1,8 @@
 ﻿using Infrastructure.AssetManagement;
 using Infrastructure.Factory;
+using Infrastructure.Services;
+using Infrastructure.Services.DataAnalitycsService;
+using Infrastructure.Services.DBSyncService;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoad;
 using Infrastructure.Services.StaticDataService;
@@ -29,6 +32,12 @@ namespace Infrastructure.CompositionRoot
 			BindStaticDataService();
 
 			BindSaveLoadService();
+
+			BindAnalyticsService();
+
+			BindMinigameDataAnalyticsSaver();
+
+			BindDatabaseSyncService();
 		}
 
 		private void BindAssetProvider()
@@ -102,6 +111,30 @@ namespace Infrastructure.CompositionRoot
 		{
 			Container
 				.BindInterfacesAndSelfTo<SaveLoadService>()
+				.AsSingle();
+		}
+
+		private void BindAnalyticsService()
+		{
+			Container
+				.Bind<IAnalyticsService>()
+				.To<AnalyticsService>()
+				.AsSingle();
+		}
+
+		private void BindMinigameDataAnalyticsSaver()
+		{
+			Container
+				.Bind<IMinigameDataAnalyticsSaver>()
+				.To<MinigameDataAnalyticsSaver>()
+				.AsSingle();
+		}
+
+		private void BindDatabaseSyncService()
+		{
+			Container
+				.Bind<IDatabaseSyncService>()
+				.To<DatabaseSyncService>()
 				.AsSingle();
 		}
 	}

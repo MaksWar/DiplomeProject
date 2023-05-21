@@ -10,5 +10,6 @@ namespace Infrastructure.Factory
 		GameObject CreateMainCamera();
 		GameObject CreateUICamera();
 		GameObject CreateHUD();
+		GameObject CreateResultPanel();
 	}
 }

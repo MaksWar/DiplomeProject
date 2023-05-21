@@ -37,5 +37,7 @@ namespace Infrastructure.Factory
 		public GameObject CreateHUD() =>
 			AssetProvider.Instantiate(FactoryAssetPath.HUD);
 
+		public GameObject CreateResultPanel() =>
+			AssetProvider.Instantiate(FactoryAssetPath.ResultPanel);
 	}
 }

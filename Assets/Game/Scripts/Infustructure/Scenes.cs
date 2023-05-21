@@ -3,6 +3,6 @@
 	public static class Scenes
 	{
 		public const string InitialScene = "InitScene";
-		public const string TestScene = "TestScene";
+		public const string MainMenu = "MainMenu";
 	}
 }

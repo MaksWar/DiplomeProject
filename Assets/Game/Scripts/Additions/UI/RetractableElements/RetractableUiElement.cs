@@ -1,6 +1,10 @@
 ﻿using System;
 using DG.Tweening;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 namespace Additions.UI.RetractableElements
 {
@@ -36,11 +40,23 @@ namespace Additions.UI.RetractableElements
 				.OnComplete(() => OnPanelClosed?.Invoke());
 		}
 
+#if UNITY_EDITOR
 		[ContextMenu("CopyShowPosition")]
-		public void CopyShowPosition() => showPosition = rectTransform.anchoredPosition;
+		public void CopyShowPosition()
+		{
+			showPosition = rectTransform.anchoredPosition;
+
+			EditorUtility.SetDirty(this);
+		}
 
 		[ContextMenu("CopyHiddenPosition")]
-		public void CopyHiddenPosition() => hiddenPosition = rectTransform.anchoredPosition;
+		public void CopyHiddenPosition()
+		{
+			hiddenPosition = rectTransform.anchoredPosition;
+
+			EditorUtility.SetDirty(this);
+		}
+#endif
 
 		protected virtual void OnValidate()
 		{

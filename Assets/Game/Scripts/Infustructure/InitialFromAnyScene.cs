@@ -22,6 +22,6 @@ namespace Infrastructure
 			if (bootstrapper == null)
 				SceneManager.LoadScene(SCENE_NAME);
 		}
-	}
 #endif
+	}
 }

@@ -40,8 +40,8 @@ namespace Infrastructure.States
 
 		private void OnLoaded()
 		{
-			InitHud();
-			InitCameras();
+			//InitHud();
+			//InitCameras();
 			InformProgressReaders();
 
 			_loadingCurtain.Hide();

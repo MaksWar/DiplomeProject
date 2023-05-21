@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a282c1665d9488ea5cf29acdfaf4511, type: 3}
+  m_Name: "Picture\u0421ondition 2"
+  m_EditorClassIdentifier: 
+  scoreReward: 50
+  conditions:
+  - type: 1
+    isNotCorrect: 0
+  - type: 2
+    isNotCorrect: 0
+  - type: 0
+    isNotCorrect: 1
+  - type: 1
+    isNotCorrect: 0
+  recommendationTime: 3
+  timeCoefficient: 1

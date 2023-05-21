@@ -15,6 +15,9 @@ namespace Infrastructure
 		public void Load(string name, Action onLoaded = null) =>
 			_coroutineRunner.StartCoroutine(LoadScene(name, onLoaded));
 
+		public void ReloadCurrentScene(Action onLoaded = null) =>
+			_coroutineRunner.StartCoroutine(ReloadScene(SceneManager.GetActiveScene().name, onLoaded));
+
 		private static IEnumerator LoadScene(string sceneName, Action onLoaded = null)
 		{
 			if (SceneManager.GetActiveScene().name == sceneName)
@@ -24,6 +27,16 @@ namespace Infrastructure
 			}
 
 			AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(sceneName);
+
+			while (waitNextScene.isDone == false)
+				yield return null;
+
+			onLoaded?.Invoke();
+		}
+
+		private IEnumerator ReloadScene(string name, Action onLoaded = null)
+		{
+			AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(name);
 
 			while (waitNextScene.isDone == false)
 				yield return null;
