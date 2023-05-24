@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MainMenu.ResultsPanels;
 using UnityEngine;
 
 namespace MainMenu
@@ -9,13 +10,14 @@ namespace MainMenu
 		[SerializeField] private UIButton ResultsButton;
 		[SerializeField] private UIButton ExitButton;
 		[SerializeField] private CategoriesPanel categoriesPanel;
+		[SerializeField] private ResultPanel resultPanel;
 
 		private List<IPanel> _panels;
 
 		private void Awake()
 		{
 			PlayButton.Butt.onClick.AddListener(() => categoriesPanel.Show());
-			ResultsButton.Butt.onClick.AddListener(() => Debug.Log("Results"));
+			ResultsButton.Butt.onClick.AddListener(() => resultPanel.Show());
 			ExitButton.Butt.onClick.AddListener(Exit);
 
 			categoriesPanel.gameObject.SetActive(false);
