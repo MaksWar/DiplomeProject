@@ -41,7 +41,7 @@ namespace Infrastructure.States
 			_databaseSyncService.SyncData();
 			_savedLoadService.SaveLocal();
 
-			_stateMachine.Enter<LoadLevelState, string>(_progressService.Progress.InitialScene);
+			_stateMachine.Enter<LoadLevelState, string>(GetNextScene());
 		}
 
 		private void InitMinigameStatistic()
@@ -60,7 +60,7 @@ namespace Infrastructure.States
 
  		private PlayerProgress NewProgress()
 		{
-			var progress = new PlayerProgress(GetNextScene(), Guid.NewGuid().ToString());
+			var progress = new PlayerProgress(Scenes.InitialScene, Guid.NewGuid().ToString());
 
 			_databaseSyncService.RegisterPlayer(progress.UniqueID);
 

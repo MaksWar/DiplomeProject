@@ -1,4 +1,5 @@
-﻿using Infrastructure.Services.StaticDataService;
+﻿using Infrastructure.AssetManagement;
+using Infrastructure.Services.StaticDataService;
 using Zenject;
 
 namespace Infrastructure.States
